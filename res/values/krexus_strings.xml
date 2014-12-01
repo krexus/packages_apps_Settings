@@ -17,5 +17,8 @@
     <string name="device_model">Device model</string>
     <!-- About phone screen, Device name -->
     <string name="device_name">Device name</string>
+
+    <!-- RAM: Memory Info -->
+    <string name="mem_info">RAM</string>
 </resources>
 
