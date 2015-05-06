@@ -20,5 +20,8 @@
 
     <!-- RAM: Memory Info -->
     <string name="mem_info">RAM</string>
+
+     <!-- Dev Options Enabled by Default -->
+     <string name="show_dev_already_enabled">No need, Developer settings are enabled by default.</string>
 </resources>
 
