@@ -33,6 +33,7 @@ public class UISettings extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY = "status_bar_show_battery_percent_low_only";
 
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_AM_PM_STYLE = "status_bar_am_pm";
@@ -43,6 +44,7 @@ public class UISettings extends SettingsPreferenceFragment
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
+    private static final int STATUS_BAR_SHOW_BATTERY_PERCENT_INSIDE = 1;
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -50,6 +52,7 @@ public class UISettings extends SettingsPreferenceFragment
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
+    private SwitchPreference mStatusBarBatteryShowPercentLowOnly;
 
     private ListPreference mClockStyle;
     private ListPreference mClockAmPmStyle;
@@ -67,6 +70,8 @@ public class UISettings extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+	int lowBatteryWarningLevel = getResources().getInteger(com.android.internal.R.integer.config_lowBatteryWarningLevel);
+
         addPreferencesFromResource(R.xml.krexus_ui_settings);
 
         ContentResolver resolver = getActivity().getContentResolver();
@@ -74,6 +79,8 @@ public class UISettings extends SettingsPreferenceFragment
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBatteryShowPercent =
                 (ListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
+	mStatusBarBatteryShowPercentLowOnly =
+                (SwitchPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY);
 
         int batteryStyle = Settings.Secure.getInt(resolver,
                 Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0);
@@ -87,6 +94,12 @@ public class UISettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
+
+        int batteryShowPercentLowOnly = Settings.System.getInt(getActivity().getContentResolver(), Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY, 0);
+        mStatusBarBatteryShowPercentLowOnly.setChecked(batteryShowPercentLowOnly == 1);
+        mStatusBarBatteryShowPercentLowOnly.setOnPreferenceChangeListener(this);
+        String showPercentLowOnlySummary = String.format(getResources().getString(R.string.status_bar_battery_percentage_low_only_summary), lowBatteryWarningLevel);
+        mStatusBarBatteryShowPercentLowOnly.setSummary(showPercentLowOnlySummary);
 
         // clock & date
         mClockStyle = (ListPreference) findPreference(PREF_ENABLE);
@@ -167,6 +180,13 @@ public class UISettings extends SettingsPreferenceFragment
                     resolver, Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT, batteryShowPercent);
             mStatusBarBatteryShowPercent.setSummary(
                     mStatusBarBatteryShowPercent.getEntries()[index]);
+	    enableStatusBarBatteryDependents(batteryShowPercent);
+            return true;
+	// battery show only when low
+        } else if (preference == mStatusBarBatteryShowPercentLowOnly) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         // clock & date
         } else if (preference == mClockAmPmStyle) {
@@ -293,10 +313,13 @@ public class UISettings extends SettingsPreferenceFragment
         if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_HIDDEN ||
                 batteryIconStyle == STATUS_BAR_BATTERY_STYLE_TEXT) {
             mStatusBarBatteryShowPercent.setEnabled(false);
+            mStatusBarBatteryShowPercentLowOnly.setEnabled(false);
         } else if ((Settings.Secure.getInt(getActivity().getContentResolver(), Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT, 0)) != STATUS_BAR_SHOW_BATTERY_PERCENT_INSIDE) {
             mStatusBarBatteryShowPercent.setEnabled(true);
+            mStatusBarBatteryShowPercentLowOnly.setEnabled(false);
         } else {
             mStatusBarBatteryShowPercent.setEnabled(true);
+	    mStatusBarBatteryShowPercentLowOnly.setEnabled(true);
         }
     }
 }
