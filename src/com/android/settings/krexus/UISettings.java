@@ -70,7 +70,7 @@ public class UISettings extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-	int lowBatteryWarningLevel = getResources().getInteger(com.android.internal.R.integer.config_lowBatteryWarningLevel);
+	int lowBatteryWarningLevel = getResources().getInteger(com.android.internal.R.integer.config_batteryPercentLowOnlyLevel);
 
         addPreferencesFromResource(R.xml.krexus_ui_settings);
 
@@ -95,7 +95,7 @@ public class UISettings extends SettingsPreferenceFragment
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
 
-        int batteryShowPercentLowOnly = Settings.System.getInt(getActivity().getContentResolver(), Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY, 0);
+        int batteryShowPercentLowOnly = Settings.Secure.getInt(getActivity().getContentResolver(), Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY, 0);
         mStatusBarBatteryShowPercentLowOnly.setChecked(batteryShowPercentLowOnly == 1);
         mStatusBarBatteryShowPercentLowOnly.setOnPreferenceChangeListener(this);
         String showPercentLowOnlySummary = String.format(getResources().getString(R.string.status_bar_battery_percentage_low_only_summary), lowBatteryWarningLevel);
@@ -184,8 +184,8 @@ public class UISettings extends SettingsPreferenceFragment
             return true;
 	// battery show only when low
         } else if (preference == mStatusBarBatteryShowPercentLowOnly) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY,
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT_LOW_ONLY,
                     (Boolean) newValue ? 1 : 0);
             return true;
         // clock & date
