@@ -45,5 +45,9 @@
 
    <!-- App details: open play store link if app is user installed -->
    <string name="app_play_store">Google Play</string>
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery, bootloader or performing a soft reboot</string>
 </resources>
 
