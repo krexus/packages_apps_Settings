@@ -87,7 +87,7 @@ public class ScreenPinningSettings extends SettingsPreferenceFragment
 
     private static boolean isLockToAppEnabled(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.LOCK_TO_APP_ENABLED, 0) != 0;
+                Settings.System.LOCK_TO_APP_ENABLED, 1) != 0;
     }
 
     private void setLockToAppEnabled(boolean isEnabled) {

@@ -280,7 +280,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             root.findPreference(KEY_SIM_LOCK).setEnabled(isSimReady());
         }
         if (Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
+                Settings.System.LOCK_TO_APP_ENABLED, 1) != 0) {
             root.findPreference(KEY_SCREEN_PINNING).setSummary(
                     getResources().getString(R.string.switch_on_text));
         }
