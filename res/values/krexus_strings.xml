@@ -134,5 +134,9 @@
     <string name="clock_date_style_uppercase">Uppercase</string>
     <string name="clock_date_format_custom">Custom java format</string>
 
+    <!-- Status bar & navigation bar settings -->
+    <string name="statusbar_section_header">Status bar</string>
+    <string name="navigationbar_section_header">Navigation bar</string>
+
 </resources>
 
