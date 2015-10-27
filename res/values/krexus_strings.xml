@@ -81,5 +81,10 @@
     <!-- Configure notifications > low battery pulse option -->
     <string name="low_battery_pulse_title">Low battery</string>
     <string name="low_battery_pulse_summary">Pulse when battery is low</string>
+
+    <!-- UI dashboard category -->
+    <string name="ui_settings_title">Interface</string>
+    <string name="keywords_krexus_ui">systemui statusbar navigationbar quick settings tiles</string>
+
 </resources>
 
