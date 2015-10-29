@@ -20,7 +20,8 @@
 
         <!-- Krexus Logo Header -->
         <PreferenceScreen android:key="krexus_logo"
-                android:layout="@layout/about_logo_row" />
+                android:layout="@layout/about_logo_row"
+		android:fragment="com.android.settings.krexus.KrexusAbout" />
 
         <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"

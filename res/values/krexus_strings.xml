@@ -23,5 +23,16 @@
 
      <!-- Dev Options Enabled by Default -->
      <string name="show_dev_already_enabled">No need, Developer settings are enabled by default.</string>
+
+    <!-- About Krexus -->
+    <string name="krexus_about_title">About Krexus</string>
+    <string name="krexus_about_info">ROM</string>
+    <string name="krexus_about_info_summary">Krexus was born out of a simple necessity. The latest releases of stock Android were pretty close to my idea of a perfect android ROM, yet missing some elements, which are meant to be included in stock Android, at least for me. Starting from a clean AOSP environment, only specific features and fixes are included, which are personally tested, with one goal in mind. To create a stock like android ROM, \"as it should be\".</string>
+    <string name="krexus_about_devs">Developer</string>
+    <string name="krexus_about_dev_title">George G.</string>
+    <string name="krexus_about_dev_summary">Also known as \"KreAch3R\"</string>
+    <string name="krexus_about_mentions">Honorable mentions</string>
+    <string name="krexus_about_mention1_title">Achilleas G.</string>
+    <string name="krexus_about_mention1_summary">For always being there!</string>
 </resources>
 
