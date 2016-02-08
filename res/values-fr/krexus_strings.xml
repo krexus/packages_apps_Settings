@@ -135,8 +135,8 @@
     <string name="show_dev_already_enabled">Pas besoin, les paramètres de développement sont activées par défaut.</string>
 
     <!-- SystemUI Tuner Parts -->
-    <string name="systemui_tuner_statusbar_title">Itèmes</string>
-    <string name="systemui_tuner_statusbar_summary">Afficher/cacher des itèmes de la barre de statut</string>
+    <string name="systemui_tuner_statusbar_title">Icônes</string>
+    <string name="systemui_tuner_statusbar_summary">Afficher/cacher des icônes sur la barre de statut</string>
     <string name="systemui_tuner_qs_title">Paramètres rapide</string>
     <string name="systemui_tuner_qs_summary">Modifier les tuiles</string>
 
