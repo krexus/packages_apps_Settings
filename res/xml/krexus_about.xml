@@ -15,6 +15,7 @@
 -->
 
 <PreferenceScreen
+    android:key="screen_krexus_about"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
@@ -39,6 +40,16 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://plus.google.com/u/0/+GeorgeGian" />
          </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <!-- Device maintainer -->
+    <PreferenceCategory
+        android:key="category_krexus_about_maintainer"
+        android:title="@string/krexus_about_maintainer">
+
+        <Preference
+            android:key="krexus_about_maintainer" />
 
     </PreferenceCategory>
 
