@@ -539,7 +539,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
             try {
                 while (null != (cpuinfo = reader.readLine())) {
-                    if (cpuinfo.startsWith("Hardware")) {
+                    if (cpuinfo.contains("Hardware")) {
                         Matcher m = Pattern.compile(PROC_HARDWARE_REGEX).matcher(cpuinfo);
                         if (m.matches()) {
                             return m.group(1);
