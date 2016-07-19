@@ -34,5 +34,9 @@
     <string name="krexus_about_mentions">Honorable mentions</string>
     <string name="krexus_about_mention1_title">Achilleas G.</string>
     <string name="krexus_about_mention1_summary">For always being there!</string>
+
+    <!-- Vendor version -->
+    <string name="vendor_version">Vendor version</string>
+    <string name="vendor_version_default">Unknown</string>
 </resources>
 
