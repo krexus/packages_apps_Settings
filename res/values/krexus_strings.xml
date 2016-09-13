@@ -130,5 +130,13 @@
     <string name="statusbar_section_header">Status bar</string>
     <string name="navigationbar_section_header">Navigation bar</string>
 
+    <!-- SystemUI Tuner Parts -->
+    <string name="tuner_statusbar_title">Status bar icons</string>
+    <string name="tuner_statusbar_summary">Customize your icons</string>
+    <string name="tuner_navbar_title">Navigation buttons</string>
+    <string name="tuner_navbar_summary">Customize your buttons</string>
+    <string name="tuner_other_title">Other</string>
+
+
 </resources>
 

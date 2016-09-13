@@ -10,6 +10,16 @@
         android:key="statusbar"
         android:title="@string/statusbar_section_header" >
 
+        <PreferenceScreen
+            android:key="systemui_tuner_statusbar"
+            android:title="@string/tuner_statusbar_title"
+            android:summary="@string/tuner_statusbar_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.TunerActivity" />
+        </PreferenceScreen>
+
     </PreferenceCategory>
 
     <!-- Clock & date -->
@@ -86,6 +96,16 @@
     <PreferenceCategory
         android:key="navigationbar"
         android:title="@string/navigationbar_section_header" >
+
+        <PreferenceScreen
+            android:key="systemui_tuner_navbar"
+            android:title="@string/tuner_navbar_title"
+            android:summary="@string/tuner_navbar_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.NavBarTunerActivity" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 
