@@ -35,8 +35,8 @@
     <string name="krexus_about_mention1_title">Achilleas G.</string>
     <string name="krexus_about_mention1_summary">For always being there!</string>
 
-    <!-- Vendor version -->
-    <string name="vendor_version">Vendor version</string>
+    <!-- Vendor number -->
+    <string name="vendor_number">Vendor number</string>
     <string name="vendor_version_default">Unknown</string>
 
     <!-- Local (desktop) backup password menu title [CHAR LIMIT=25] -->
