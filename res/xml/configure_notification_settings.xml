@@ -22,7 +22,23 @@
     <!-- Pulse notification light -->
     <SwitchPreference
             android:key="notification_pulse"
-            android:title="@string/notification_pulse_title" />
+            android:title="@string/notification_light_pulse_title"
+            android:summary="@string/notification_light_pulse_summary"
+            android:defaultValue="true" />
+
+    <!-- Charging battery light -->
+    <com.android.settings.preference.SystemSettingSwitchPreference
+            android:key="charging_battery_led"
+            android:title="@string/charging_battery_led_title"
+            android:summary="@string/charging_battery_led_summary"
+            android:defaultValue="false" />
+
+    <!-- Low battery pulse -->
+    <com.android.settings.preference.SystemSettingSwitchPreference
+            android:key="low_battery_pulse"
+            android:title="@string/low_battery_pulse_title"
+            android:summary="@string/low_battery_pulse_summary"
+            android:defaultValue="true" />
 
     <!-- When device is locked -->
     <com.android.settings.notification.RestrictedDropDownPreference

@@ -65,5 +65,17 @@
     <!-- Volume rocker wake -->
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
     <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
+
+    <!-- Configure notifications > App notification light pulse option -->
+    <string name="notification_light_pulse_title">App notifications</string>
+    <string name="notification_light_pulse_summary">Pulse when there are unread notifications</string>
+
+    <!-- Configure notifications > charging battery light option -->
+    <string name="charging_battery_led_title">During charging</string>
+    <string name="charging_battery_led_summary">Show power level while plugged in</string>
+
+    <!-- Configure notifications > low battery pulse option -->
+    <string name="low_battery_pulse_title">Low battery</string>
+    <string name="low_battery_pulse_summary">Pulse when battery is low</string>
 </resources>
 
