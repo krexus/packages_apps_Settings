@@ -49,7 +49,9 @@
         android:title="@string/krexus_about_maintainer">
 
         <Preference
-            android:key="krexus_about_maintainer" />
+            android:key="krexus_about_maintainer"
+            android:title="@string/krexus_about_maintainer_title"
+            android:summary="@string/krexus_about_maintainer_summary" />
 
     </PreferenceCategory>
 
