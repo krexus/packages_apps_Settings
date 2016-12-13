@@ -507,6 +507,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         }
 
         mOtaDisableAutomaticUpdate = findAndInitSwitchPref(OTA_DISABLE_AUTOMATIC_UPDATE_KEY);
+        if (!Build.PRODUCT.contains("Pixel")) {
+            removePreference(OTA_DISABLE_AUTOMATIC_UPDATE_KEY);
+        }
 
         mColorModePreference = (ColorModePreference) findPreference(KEY_COLOR_MODE);
         mColorModePreference.updateCurrentAndSupported();
