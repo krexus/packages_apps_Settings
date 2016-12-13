@@ -33,13 +33,13 @@
         android:key="category_krexus_about_devs"
         android:title="@string/krexus_about_devs">
 
-        <PreferenceScreen
+        <Preference
             android:title="@string/krexus_about_dev_title"
 	    android:summary="@string/krexus_about_dev_summary">
 	    <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://plus.google.com/u/0/+GeorgeGian" />
-         </PreferenceScreen>
+                android:data="@string/krexus_about_dev_url" />
+         </Preference>
 
     </PreferenceCategory>
 
@@ -49,9 +49,12 @@
         android:title="@string/krexus_about_maintainer">
 
         <Preference
-            android:key="krexus_about_maintainer"
             android:title="@string/krexus_about_maintainer_title"
-            android:summary="@string/krexus_about_maintainer_summary" />
+            android:summary="@string/krexus_about_maintainer_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/krexus_about_maintainer_url" />
+         </Preference>
 
     </PreferenceCategory>
 
