@@ -42,6 +42,8 @@ public class UISettings extends SettingsPreferenceFragment
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
     private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
 
+    private static final String PREF_QUICK_PULLDOWN = "quick_pulldown";
+
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
     private static final int STATUS_BAR_SHOW_BATTERY_PERCENT_INSIDE = 1;
@@ -60,6 +62,8 @@ public class UISettings extends SettingsPreferenceFragment
     private ListPreference mClockDateStyle;
     private ListPreference mClockDatePosition;
     private ListPreference mClockDateFormat;
+
+    private ListPreference mQuickPulldown;
 
     @Override
     protected int getMetricsCategory() {
@@ -149,6 +153,13 @@ public class UISettings extends SettingsPreferenceFragment
             mClockDateFormat.setValue("EEE");
         }
 
+        mQuickPulldown = (ListPreference) findPreference(PREF_QUICK_PULLDOWN);
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+        int quickPulldown = Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
+        mQuickPulldown.setValue(String.valueOf(quickPulldown));
+        mQuickPulldown.setSummary(mQuickPulldown.getEntry());
+
         parseClockDateFormats();
 
         boolean mClockDateToggle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -161,7 +172,7 @@ public class UISettings extends SettingsPreferenceFragment
        enableClockStyleDependents(Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_STYLE, 1));
 
-        enableClockDateDisplayDependents(Settings.System.getInt(getActivity().getContentResolver(),
+       enableClockDateDisplayDependents(Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 0));
     }
 
@@ -280,6 +291,13 @@ public class UISettings extends SettingsPreferenceFragment
                         Settings.System.STATUSBAR_CLOCK_DATE_FORMAT, (String) newValue);
                 }
             }
+            return true;
+        } else if (preference == mQuickPulldown) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mQuickPulldown.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, val);
+            mQuickPulldown.setSummary(mQuickPulldown.getEntries()[index]);
             return true;
         }
         return false;

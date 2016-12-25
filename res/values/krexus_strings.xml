@@ -140,5 +140,12 @@
     <!-- Volume button orientation based on current rotation -->
     <string name="swap_volume_buttons_title">Dynamic volume buttons</string>
     <string name="swap_volume_buttons_summary">Adjust orientation based on current rotation</string>
+
+    <!-- Quick pull down-->
+    <string name="quick_pulldown_title">Quick pulldown</string>
+    <string name="quick_pulldown_off">Off</string>
+    <string name="quick_pulldown_left">Left</string>
+    <string name="quick_pulldown_right">Right</string>
+
 </resources>
 
