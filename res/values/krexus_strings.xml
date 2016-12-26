@@ -84,6 +84,7 @@
 
     <!-- UI dashboard category -->
     <string name="ui_settings_title">Interface</string>
+    <string name="ui_settings_summary">Statusbar and navigation</string>
     <string name="keywords_krexus_ui">systemui statusbar navigationbar quick settings tiles</string>
 
     <!-- Battery options -->
@@ -146,6 +147,12 @@
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
+
+    <!-- Accessibility settings -->
+    <string name="accessibility_settings_summary">Easier access</string>
+
+   <!-- Advanced settings (former: Developer options) -->
+   <string name="dev_advanced_settings_summary">For the experienced user</string>
 
 </resources>
 

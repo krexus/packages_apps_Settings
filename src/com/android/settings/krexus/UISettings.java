@@ -1,7 +1,9 @@
 package com.android.settings.krexus;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
+import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -360,4 +363,31 @@ public class UISettings extends SettingsPreferenceFragment
         mClockDatePosition.setEnabled(clockDateDisplay != 0);
         mClockDateFormat.setEnabled(clockDateDisplay != 0);
     }
+
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+
+        private final Context mContext;
+        private final SummaryLoader mSummaryLoader;
+
+        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
+            mContext = context;
+            mSummaryLoader = summaryLoader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                mSummaryLoader.setSummary(this, mContext.getString(R.string.ui_settings_summary));
+            }
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 }
