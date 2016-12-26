@@ -21,9 +21,6 @@
     <!-- RAM: Memory Info -->
     <string name="mem_info">RAM</string>
 
-     <!-- Dev Options Enabled by Default -->
-     <string name="show_dev_already_enabled">No need, Developer settings are enabled by default.</string>
-
     <!-- About Krexus -->
     <string name="krexus_about_title">About Krexus</string>
     <string name="krexus_about_info">ROM</string>
@@ -152,7 +149,9 @@
     <string name="accessibility_settings_summary">Easier access</string>
 
    <!-- Advanced settings (former: Developer options) -->
+   <string name="dev_advanced_settings_title">@string/advanced_section_header</string>
    <string name="dev_advanced_settings_summary">For the experienced user</string>
+   <string name="dev_advanced_already_enabled">No need, advanced settings are enabled by default.</string>
 
 </resources>
 
