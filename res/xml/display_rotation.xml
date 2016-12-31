@@ -29,35 +29,32 @@
         <SwitchPreference
             android:key="display_rotation_0"
             android:title="@string/display_rotation_0_title"
-            android:layout="?android:attr/preferenceLayoutChild"
             android:dependency="accelerometer" />
 
         <SwitchPreference
             android:key="display_rotation_90"
             android:title="@string/display_rotation_90_title"
-            android:layout="?android:attr/preferenceLayoutChild"
             android:dependency="accelerometer" />
 
         <SwitchPreference
             android:key="display_rotation_180"
             android:title="@string/display_rotation_180_title"
-            android:layout="?android:attr/preferenceLayoutChild"
             android:dependency="accelerometer" />
 
         <SwitchPreference
             android:key="display_rotation_270"
             android:title="@string/display_rotation_270_title"
-            android:layout="?android:attr/preferenceLayoutChild"
             android:dependency="accelerometer" />
 
     <PreferenceCategory
         android:key="display_rotation_advanced"
         android:title="@string/advanced_section_header" />
-     <com.android.settings.preference.SystemSettingSwitchPreference
-        android:key="swap_volume_buttons"
-        android:title="@string/swap_volume_buttons_title"
-        android:summary="@string/swap_volume_buttons_summary"
-	android:dependency="accelerometer"
-        android:defaultValue="true"/>
+
+         <com.android.settings.preference.SystemSettingSwitchPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary"
+	    android:dependency="accelerometer"
+            android:defaultValue="true"/>
 
 </PreferenceScreen>
