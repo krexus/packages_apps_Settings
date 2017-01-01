@@ -22,6 +22,7 @@ import android.text.TextUtils;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
+import android.widget.Toast;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -51,6 +52,16 @@ public class KrexusAbout extends SettingsPreferenceFragment {
         if (TextUtils.isEmpty(maintainerTitle)) {
             krexusAboutScreen.removePreference(krexusMaintainerCategory);
         }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (getPackageManager().queryIntentActivities(preference.getIntent(), 0).isEmpty()) {
+            // Don't send out the intent to stop crash & notify the user
+            Toast.makeText(getActivity(), R.string.krexus_about_browser_error, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override

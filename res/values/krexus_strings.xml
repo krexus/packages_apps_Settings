@@ -36,6 +36,7 @@
     <string name="krexus_about_mentions">Honorable mentions</string>
     <string name="krexus_about_mention1_title">Achilleas G.</string>
     <string name="krexus_about_mention1_summary">For always being there!</string>
+    <string name="krexus_about_browser_error">No app found! Make sure you have a Browser installed.</string>
 
     <!-- Vendor number -->
     <string name="vendor_number">Vendor number</string>
