@@ -56,10 +56,12 @@ public class KrexusAbout extends SettingsPreferenceFragment {
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-        if (getPackageManager().queryIntentActivities(preference.getIntent(), 0).isEmpty()) {
-            // Don't send out the intent to stop crash & notify the user
-            Toast.makeText(getActivity(), R.string.krexus_about_browser_error, Toast.LENGTH_SHORT).show();
-            return true;
+        if (preference.getIntent() != null ) {
+            if (getPackageManager().queryIntentActivities(preference.getIntent(), 0).isEmpty()) {
+                // Don't send out the intent to stop crash & notify the user
+                Toast.makeText(getActivity(), R.string.krexus_about_browser_error, Toast.LENGTH_SHORT).show();
+                return true;
+            }
         }
         return super.onPreferenceTreeClick(preference);
     }
